@@ -1,23 +1,33 @@
-const ChatRoom=require("./chatRoom")
+// Import the ChatRoom class from the local file "chatRoom.js"
+const Chat = require("./chatRoom");
 
-const chat=new ChatRoom();
+// Create a new instance of the ChatRoom class
+const chat = new Chat();
 
-chat.on('join',(user)=>{
-    console.log(`${user} is join the chatroom`)
-})
+// Register an event listener for when a user joins the chat
+// Whenever the 'join' event is emitted, this callback runs
+chat.on('join', (user) => {
+    console.log(`${user} has joined the chat`);
+});
 
-chat.on('sendMessage',(user,message)=>{
-    console.log(`${user}: ${message}`)
-})
-chat.on('left',(user)=>{
-    console.log(`${user} is left the chatroom`)
-})
+// Register an event listener for when a user sends a message
+// It listens for the 'sendMessage' event and logs the message to the console
+chat.on('sendMessage', (user, message) => {
+    console.log(`${user}: ${message}`);
+});
 
-// simulating
+// Register an event listener for when a user leaves the chat
+// When the 'leave' event is emitted, it logs that the user has left
+chat.on('leave', (user) => {
+    console.log(`${user} has left the chat`);
+});
 
-chat.join("gautam")
-chat.join("champi")
+// Add a user named "Alice" to the chat room
+// This triggers the 'join' event inside ChatRoom
+chat.join("Alice");
 
-chat.sendMessage("gautam","hey champe kya kr rhi ho")
-
-// chat.left("gautam")
+// Try to send a message as "alice" (note: lowercase 'a')
+// Since usernames are case-sensitive and only "Alice" joined,
+// the ChatRoom will detect that "alice" is not in the room
+// and print: "alice is not in chatRoom"
+chat.sendMessage("alice", "hey gautam");
