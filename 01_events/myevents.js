@@ -16,6 +16,17 @@ eventEmitter.once('Message',(msg)=>{
     console.log(`Message Recived: ${msg}`)
 })
 
-eventEmitter.emit('Message',"Welcome To India")
-eventEmitter.emit('Message',"hello gautam")
+// eventEmitter.emit('Message',"Welcome To India")
+// eventEmitter.emit('Message',"hello gautam")
 
+//  ********  creating licener outside of the eventEmiter *******
+const mylicener=()=>{
+    console.log("hey i am test licener")
+}
+
+// creating event licener
+eventEmitter.on('test',mylicener)
+
+// Emit the Event
+eventEmitter.emit('test')
+eventEmitter.emit('test')
