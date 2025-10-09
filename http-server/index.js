@@ -21,7 +21,7 @@ const server = http.createServer(function (req, res) {
 });
 
 // Start the server and have it listen on port 8000
-// The callback runs once when the server starts successfully.
+// The callback runs once when the server starts successfully
 server.listen(8000, function () {
     console.log(`HTTP server is up and running on port 8000`);
 });
