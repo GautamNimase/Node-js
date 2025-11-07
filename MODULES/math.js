@@ -12,7 +12,7 @@ exports.mul=function mul(a,b){
 
 exports.div=function div(a,b){
     return a/b;
-}
+}  
 
 // module.exports= function(){
 //     console.log('hey i am default');
